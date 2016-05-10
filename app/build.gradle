@@ -1,0 +1,84 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.neenbedankt.android-apt'
+android {
+    compileSdkVersion 23
+    buildToolsVersion "24.0.0 rc3"
+
+    defaultConfig {
+        applicationId "com.cbl.rxandroidandmvp"
+        minSdkVersion 19
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    retrolambda {
+        javaVersion JavaVersion.VERSION_1_7
+    }
+}
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.android.support:design:23.3.0'
+
+    compile 'com.jakewharton:butterknife:7.0.1' // ButterKnife标注
+    compile 'com.google.dagger:dagger:2.0.2' // dagger2
+    compile 'com.google.dagger:dagger-compiler:2.0.2' // dagger2
+
+    compile 'io.reactivex:rxandroid:1.1.0'    // RxAndroid
+    compile 'io.reactivex:rxjava:1.1.0'   // 推荐同时加载RxJava
+
+    // 针对 Android 6.0 权限管理进行一个 Rx 封装的一个类库
+    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.7.0@aar'
+
+    compile 'com.squareup.retrofit2:retrofit:2.0.1'// Retrofit网络处理
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.1'// Retrofit的rx解析库
+
+    compile 'com.squareup.retrofit2:converter-gson:2.0.1'// Retrofit的gson库
+    compile 'com.squareup.okhttp3:okhttp:3.0.1'//OKhttp网络请求
+    compile 'com.squareup.okhttp3:logging-interceptor:3.0.1'
+
+    compile 'com.squareup.okio:okio:1.6.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
+    // Picasso网络图片加载
+    // compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.trello:rxlifecycle:0.5.0'// RxLifecycle组件
+    compile 'com.trello:rxlifecycle-components:0.5.0'// RxLifecycle管理Rx的生命周期
+    // RxBinding是基于RxJava的Android函数式相应编程(FRP)框架，非常容易实现单向绑定
+    compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
+    compile 'com.jakewharton.rxbinding:rxbinding-appcompat-v7:0.4.0'
+    compile 'com.jakewharton.rxbinding:rxbinding-design:0.4.0'
+    compile 'com.jakewharton.rxbinding:rxbinding-recyclerview-v7:0.4.0'
+
+    compile 'me.tatarka:gradle-retrolambda:3.2.5'// lambda表达式
+
+    compile 'nl.littlerobots.rxlint:rxlint:1.0'//rxlint目前只有一条检测订阅是否处理onError()的lint规则
+
+    compile 'com.anupcowkur:reservoir:2.1'// Reservoir
+    compile 'com.orhanobut:logger:1.8'
+    apt 'com.bluelinelabs:logansquare-compiler:1.3.6'
+    compile 'com.bluelinelabs:logansquare:1.3.6'
+
+    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'// 设置状态栏全透明
+    //在开发调试阶段检测内存泄露问题
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.3.1'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.3.1'
+    //轻松找出Android App界面卡顿元凶
+    //    debugCompile 'com.github.moduth:blockcanary-android:1.2.1'
+    //    releaseCompile 'com.github.moduth:blockcanary-no-op:1.2.1'
+    compile 'com.github.moduth:blockcanary-android:1.2.1'
+    compile files('libs/mta-sdk-1.6.2.jar')
+    compile files('libs/open_sdk_r5509.jar')
+}

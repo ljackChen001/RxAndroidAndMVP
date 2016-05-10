@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_daily_good"
+            android:icon="@drawable/nav_daily_good"
+            android:title="Import" />
+        <item
+            android:id="@+id/nav_boon"
+            android:icon="@drawable/nav_boon"
+            android:title="Gallery" />
+        <item
+            android:id="@+id/nav_android"
+            android:icon="@drawable/nav_android"
+            android:title="Slideshow" />
+        <item
+            android:id="@+id/nav_ios"
+            android:icon="@drawable/nav_ios"
+            android:title="Tools" />
+        <item
+            android:id="@+id/nav_js"
+            android:icon="@drawable/nav_js"
+            android:title="Tools" />
+        <item
+            android:id="@+id/nav_video"
+            android:icon="@drawable/nav_video"
+            android:title="Tools" />
+        <item
+            android:id="@+id/nav_resource"
+            android:icon="@drawable/nav_resource"
+            android:title="Tools" />
+        <item
+            android:id="@+id/nav_app"
+            android:icon="@drawable/nav_app"
+            android:title="Tools" />
+
+    </group>
+
+    <item android:title="SubItems">
+        <menu>
+            <item
+                android:id="@+id/nav_setting"
+                android:icon="@drawable/nav_setting"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_night_mode"
+                android:icon="@drawable/nav_night_mode"
+                android:title="Send" />
+        </menu>
+    </item>
+    <item android:title="SubItems">
+        <menu>
+            <item
+                android:id="@+id/subitem_04"
+                android:icon="@mipmap/ic_launcher"
+                android:title="SubItem04" />
+            <item
+                android:id="@+id/subitem_05"
+                android:icon="@mipmap/ic_launcher"
+                android:title="SubItem05" />
+            <item
+                android:id="@+id/subitem_06"
+                android:icon="@mipmap/ic_launcher"
+                android:title="SubItem06" />
+        </menu>
+    </item>
+
+</menu>

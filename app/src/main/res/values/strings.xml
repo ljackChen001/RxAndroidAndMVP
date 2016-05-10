@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RxAndroidAndMVP</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="app_html">http://www.baidu.com</string>
+    <string name="can_not_find_version_name">找不到版本号</string>
+</resources>
