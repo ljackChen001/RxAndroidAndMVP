@@ -5,4 +5,7 @@ package com.cbl.rxandroidandmvp.bean;
  * e-mail 505951628@qq.com
  */
 public class User {
+    private String userId;
+    private String userName;
+
 }
