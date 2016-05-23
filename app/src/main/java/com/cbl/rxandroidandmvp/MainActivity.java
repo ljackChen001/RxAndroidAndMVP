@@ -29,18 +29,15 @@ public class MainActivity extends BaseActivity
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        initView();
         initDrawer();
-
     }
 
-    private void initView() {
-        toolbar = findView(R.id.toolbar);
-        drawer = findView(R.id.drawer_layout);
-        FloatingActionButton fab =  findView(R.id.fab);
+    public void initView() {
+        toolbar = $(R.id.toolbar);
+        drawer = $(R.id.drawer_layout);
+        FloatingActionButton fab = $(R.id.fab);
         setSupportActionBar(toolbar);
-        if (fab!=null){
+        if (fab != null) {
             fab.setOnClickListener(v -> showFabDialog());
         }
     }
@@ -51,7 +48,7 @@ public class MainActivity extends BaseActivity
                 .setPositiveButton("好叻", (dialog, which) -> {
                     Uri uri = Uri.parse(getString(R.string.app_html));   //指定网址
                     Intent intent = new Intent();
-                    intent.setClass(getApplicationContext(),hello.class);
+                    intent.setClass(getApplicationContext(), hello.class);
 //                    intent.setAction(Intent.ACTION_VIEW);           //指定Action
 //                    intent.setData(uri);                            //设置Uri
                     MainActivity.this.startActivity(intent);        //启动Activity
@@ -60,15 +57,14 @@ public class MainActivity extends BaseActivity
     }
 
 
-
     /**
      * 初始化抽屉
      */
     private void initDrawer() {
-        NavigationView navigationView= findView(R.id.nav_view);
-        if (navigationView!=null){
+        NavigationView navigationView = $(R.id.nav_view);
+        if (navigationView != null) {
             navigationView.setNavigationItemSelectedListener(this);
-            drawer =findView(R.id.drawer_layout);
+            drawer = $(R.id.drawer_layout);
             ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open,
                     R.string.navigation_drawer_close);
             drawer.addDrawerListener(toggle);
@@ -78,7 +74,7 @@ public class MainActivity extends BaseActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = $(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -128,14 +124,24 @@ public class MainActivity extends BaseActivity
 
         }
 
-       drawer = (DrawerLayout) findView(R.id.drawer_layout);
+        drawer = (DrawerLayout) $(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-    @Override
+
     protected void setStatusBar() {
         mStatusBarColor = getResources().getColor(R.color.colorPrimary);
-        StatusBarUtil.setColorForDrawerLayout(this, (DrawerLayout) findViewById(R.id.drawer_layout), mStatusBarColor, mAlpha);
+        StatusBarUtil.setColorForDrawerLayout(this, (DrawerLayout) $(R.id.drawer_layout), mStatusBarColor, mAlpha);
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    public void initPresenter() {
+
     }
 
 }

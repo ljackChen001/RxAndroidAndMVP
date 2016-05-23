@@ -1,6 +1,6 @@
 package com.cbl.rxandroidandmvp;
 
-import android.os.Bundle;
+import android.widget.Button;
 
 import com.cbl.rxandroidandmvp.base.BaseActivity;
 
@@ -9,10 +9,21 @@ import com.cbl.rxandroidandmvp.base.BaseActivity;
  * e-mail 505951628@qq.com
  */
 public class hello extends BaseActivity {
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
+    public int getLayoutId() {
+        return R.layout.activity_about;
     }
 
+    @Override
+    public void initView() {
+      Button b=$(R.id.btn);
+    }
+
+    @Override
+    public void initPresenter() {
+
+    }
 }
+
+
